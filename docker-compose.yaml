@@ -1,0 +1,153 @@
+services:
+  bootnode-1:
+    image: hyperledger/besu:23.4.0
+    ports:
+      - "30303"
+      - "30303/udp"
+      - "8545:8545" # rpc-http
+      - "8546" # rpc-ws
+    networks:
+      network:
+        ipv4_address: 172.16.238.10
+    configs:
+      - source: genesis.json
+        target: /opt/besu/genesis.json
+    secrets:
+      - source: bootnode-1-private-key
+        target: /opt/besu/key
+    command:
+      [
+        "--genesis-file=./genesis.json",
+        "--rpc-http-enabled",
+        "--rpc-http-api=ETH,NET,QBFT,IBFT",
+        "--rpc-http-cors-origins=all",
+        "--rpc-ws-enabled",
+        "--host-allowlist=*",
+        "--min-gas-price=0",
+      ]
+  validator-1:
+    image: hyperledger/besu:23.4.0
+    ports:
+      - "30303"
+      - "30303/udp"
+      - "8545" # rpc-http
+      - "8546" # rpc-ws
+    networks:
+      - network
+    configs:
+      - source: genesis.json
+        target: /opt/besu/genesis.json
+    secrets:
+      - source: validator-1-private-key
+        target: /opt/besu/key
+    command:
+      [
+        "--bootnodes=enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
+        "--genesis-file=./genesis.json",
+        "--rpc-http-enabled",
+        "--rpc-http-api=ETH,NET,QBFT,IBFT",
+        "--rpc-http-cors-origins=all",
+        "--rpc-ws-enabled",
+        "--host-allowlist=*",
+        "--min-gas-price=0",
+      ]
+  validator-2:
+    image: hyperledger/besu:23.4.0
+    ports:
+      - "30303"
+      - "30303/udp"
+      - "8545" # rpc-http
+      - "8546" # rpc-ws
+    networks:
+      - network
+    configs:
+      - source: genesis.json
+        target: /opt/besu/genesis.json
+    secrets:
+      - source: validator-2-private-key
+        target: /opt/besu/key
+    command:
+      [
+        "--bootnodes=enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
+        "--genesis-file=./genesis.json",
+        "--rpc-http-enabled",
+        "--rpc-http-api=ETH,NET,QBFT,IBFT",
+        "--rpc-http-cors-origins=all",
+        "--rpc-ws-enabled",
+        "--host-allowlist=*",
+        "--min-gas-price=0",
+      ]
+  validator-3:
+    image: hyperledger/besu:23.4.0
+    ports:
+      - "30303"
+      - "30303/udp"
+      - "8545" # rpc-http
+      - "8546" # rpc-ws
+    networks:
+      - network
+    configs:
+      - source: genesis.json
+        target: /opt/besu/genesis.json
+    secrets:
+      - source: validator-3-private-key
+        target: /opt/besu/key
+    command:
+      [
+        "--bootnodes=enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
+        "--genesis-file=./genesis.json",
+        "--rpc-http-enabled",
+        "--rpc-http-api=ETH,NET,QBFT,IBFT",
+        "--rpc-http-cors-origins=all",
+        "--rpc-ws-enabled",
+        "--host-allowlist=*",
+        "--min-gas-price=0",
+      ]
+  validator-4:
+    image: hyperledger/besu:23.4.0
+    ports:
+      - "30303"
+      - "30303/udp"
+      - "8545" # rpc-http
+      - "8546" # rpc-ws
+    networks:
+      - network
+    configs:
+      - source: genesis.json
+        target: /opt/besu/genesis.json
+    secrets:
+      - source: validator-4-private-key
+        target: /opt/besu/key
+    command:
+      [
+        "--bootnodes=enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
+        "--genesis-file=./genesis.json",
+        "--rpc-http-enabled",
+        "--rpc-http-api=ETH,NET,QBFT,IBFT",
+        "--rpc-http-cors-origins=all",
+        "--rpc-ws-enabled",
+        "--host-allowlist=*",
+        "--min-gas-price=0",
+      ]
+
+configs:
+  genesis.json:
+    file: ./genesis.json
+
+secrets:
+  bootnode-1-private-key:
+    file: ./bootnode-1/key.priv
+  validator-1-private-key:
+    file: ./validator-1/key.priv
+  validator-2-private-key:
+    file: ./validator-2/key.priv
+  validator-3-private-key:
+    file: ./validator-3/key.priv
+  validator-4-private-key:
+    file: ./validator-4/key.priv
+
+networks:
+  network:
+    ipam:
+      config:
+        - subnet: 172.16.238.0/24
