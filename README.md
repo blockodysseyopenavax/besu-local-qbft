@@ -20,8 +20,9 @@ The network consists of 1 bootnode and 4 validators.
 This is minimum QBFT configuration where the number `f` of tolerable byzantine nodes is 1.
 QBFT, as well as its predecessor IBFT 2.0, requires at least `3f+1` validators to tolerate `f` byzantine (faulty or malicious) nodes.
 
-Technically, bootnode is auxiliary but recommended in general.
-In this repo, we use bootnode as rpc node.
+Technically, bootnode is auxiliary but [strongly recommended](https://github.com/ConsenSys/quorum-kubernetes#production-network-guidelines) in general.
+
+In this repo, we use bootnode as rpc node too.
 
 ### Chain
 
