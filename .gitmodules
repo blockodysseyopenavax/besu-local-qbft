@@ -1,0 +1,3 @@
+[submodule "sirato-free"]
+	path = sirato-free
+	url = https://github.com/web3labs/sirato-free
