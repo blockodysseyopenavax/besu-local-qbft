@@ -55,6 +55,27 @@ It seems safe to use berlin hardfork for sufficiently recent versions of besu. B
 If you need EIP-1559, you may try london & besu 23.4.0, where `baseFeePerGas` is required.
 In this setting, you can make gas-free network via `config.zeroBaseFee = true` and `baseFeePerGas = '0x0'`.
 
+## Block Explorer
+
+[Sirato free plan](https://github.com/web3labs/sirato-free) is used as block explorer for the network.
+Sirato instance is configured to connect to rpc node, which is currently `bootnode-1`.
+For simplicity, we use its own docker compose.
+
+To start a sirato instance (in detached mode), run
+
+```Bash
+sh sirato-up.sh
+```
+
+After few minutes, it will be available at [localhost:80](http://localhost:80).
+If port collision happens, change sirato's port in `sirato-up.sh` then re-run it.
+
+To clean up, run
+
+```Bash
+sh sirato-down.sh
+```
+
 ## Features
 
 - [x] Basic Network
@@ -71,5 +92,5 @@ In this setting, you can make gas-free network via `config.zeroBaseFee = true` a
   - [ ] network
     - [ ] prometheus
     - [ ] grafana
-  - [ ] chain
-    - [ ] block explorer
+  - [x] chain
+    - [x] sirato block explorer
