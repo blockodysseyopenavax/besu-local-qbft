@@ -54,3 +54,22 @@ It seems safe to use berlin hardfork for sufficiently recent versions of besu. B
 
 If you need EIP-1559, you may try london & besu 23.4.0, where `baseFeePerGas` is required.
 In this setting, you can make gas-free network via `config.zeroBaseFee = true` and `baseFeePerGas = '0x0'`.
+
+## Features
+
+- [x] Basic Network
+  - [x] genesis.json
+  - [x] bootnode
+  - [x] validators
+- [ ] Privacy
+  - [ ] tessera for each validator
+  - [ ] privacy transaction test
+- [ ] Permissioning
+  - [ ] node permissioning
+  - [ ] account permissioning
+- [ ] Monitoring
+  - [ ] network
+    - [ ] prometheus
+    - [ ] grafana
+  - [ ] chain
+    - [ ] block explorer
