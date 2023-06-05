@@ -1,3 +1,3 @@
 cd sirato-free/docker-compose
 
-docker compose down
+docker compose down --volume
