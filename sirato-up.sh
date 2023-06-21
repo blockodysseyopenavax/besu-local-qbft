@@ -9,6 +9,6 @@ case $(uname -s) in
 esac
 NODE_ENDPOINT=http://${RPC_HOST}:8545
 # sirato port (default 80)
-PORT=80
+PORT=8080
 # run sirato
-NODE_ENDPOINT=${NODE_ENDPOINT} PORT=${PORT} docker compose up -d
+NODE_ENDPOINT=${NODE_ENDPOINT} PORT=${PORT} docker compose up

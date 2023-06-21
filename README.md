@@ -61,13 +61,13 @@ In this setting, you can make gas-free network via `config.zeroBaseFee = true` a
 Sirato instance is configured to connect to rpc node, which is currently `bootnode-1`.
 For simplicity, we use its own docker compose.
 
-To start a sirato instance (in detached mode), run
+To start a sirato instance, open another terminal and run
 
 ```Bash
 sh sirato-up.sh
 ```
 
-After few minutes, it will be available at [localhost:80](http://localhost:80).
+After few minutes, it will be available at [localhost:8080](http://localhost:80).
 If port collision happens, change sirato's port in `sirato-up.sh` then re-run it.
 
 To clean up, run
