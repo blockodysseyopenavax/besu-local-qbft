@@ -1,5 +1,3 @@
-cd sirato-free/docker-compose
-
 # besu network rpc endpoint (currently bootnode's rpc connected to host)
 # see https://github.com/web3labs/sirato-free/tree/master/docker-compose#readme
 case $(uname -s) in
@@ -11,4 +9,6 @@ NODE_ENDPOINT=http://${RPC_HOST}:8545
 # sirato port (default 80)
 PORT=8080
 # run sirato
-NODE_ENDPOINT=${NODE_ENDPOINT} PORT=${PORT} docker compose up
+NODE_ENDPOINT=${NODE_ENDPOINT} PORT=${PORT} docker compose \
+  -f sirato-free/docker-compose/docker-compose.yml \
+  up

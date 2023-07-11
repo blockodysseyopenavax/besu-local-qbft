@@ -67,7 +67,7 @@ To start a sirato instance, open another terminal and run
 sh sirato-up.sh
 ```
 
-After few minutes, it will be available at [localhost:8080](http://localhost:80).
+After few minutes, it will be available at [localhost:8080](http://localhost:8080).
 If port collision happens, change sirato's port in `sirato-up.sh` then re-run it.
 
 To clean up, run
