@@ -8,22 +8,18 @@ services:
       - "8546" # rpc-ws
     networks:
       network:
-        ipv4_address: 172.16.238.10
+        ipv4_address: 172.16.238.10 # this static ip is now used in config.toml to set bootnodes enodeUrl for other nodes
     configs:
       - source: genesis.json
-        target: /opt/besu/genesis.json
+        target: /opt/besu/genesis.json # default
+      - source: config.toml
+        target: /opt/besu/config.toml
     secrets:
       - source: bootnode-1-private-key
-        target: /opt/besu/key
+        target: /opt/besu/key # default
     command:
       [
-        "--genesis-file=./genesis.json",
-        "--rpc-http-enabled",
-        "--rpc-http-api=ETH,NET,QBFT,IBFT",
-        "--rpc-http-cors-origins=all",
-        "--rpc-ws-enabled",
-        "--host-allowlist=*",
-        "--min-gas-price=0",
+        "--config-file=/opt/besu/config.toml"
       ]
   validator-1:
     image: hyperledger/besu:23.4.0
@@ -37,19 +33,14 @@ services:
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
+      - source: config.toml
+        target: /opt/besu/config.toml
     secrets:
       - source: validator-1-private-key
         target: /opt/besu/key
     command:
       [
-        "--bootnodes=enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
-        "--genesis-file=./genesis.json",
-        "--rpc-http-enabled",
-        "--rpc-http-api=ETH,NET,QBFT,IBFT",
-        "--rpc-http-cors-origins=all",
-        "--rpc-ws-enabled",
-        "--host-allowlist=*",
-        "--min-gas-price=0",
+        "--config-file=/opt/besu/config.toml"
       ]
   validator-2:
     image: hyperledger/besu:23.4.0
@@ -63,19 +54,14 @@ services:
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
+      - source: config.toml
+        target: /opt/besu/config.toml
     secrets:
       - source: validator-2-private-key
         target: /opt/besu/key
     command:
       [
-        "--bootnodes=enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
-        "--genesis-file=./genesis.json",
-        "--rpc-http-enabled",
-        "--rpc-http-api=ETH,NET,QBFT,IBFT",
-        "--rpc-http-cors-origins=all",
-        "--rpc-ws-enabled",
-        "--host-allowlist=*",
-        "--min-gas-price=0",
+        "--config-file=/opt/besu/config.toml"
       ]
   validator-3:
     image: hyperledger/besu:23.4.0
@@ -89,19 +75,14 @@ services:
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
+      - source: config.toml
+        target: /opt/besu/config.toml
     secrets:
       - source: validator-3-private-key
         target: /opt/besu/key
     command:
       [
-        "--bootnodes=enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
-        "--genesis-file=./genesis.json",
-        "--rpc-http-enabled",
-        "--rpc-http-api=ETH,NET,QBFT,IBFT",
-        "--rpc-http-cors-origins=all",
-        "--rpc-ws-enabled",
-        "--host-allowlist=*",
-        "--min-gas-price=0",
+        "--config-file=/opt/besu/config.toml"
       ]
   validator-4:
     image: hyperledger/besu:23.4.0
@@ -115,24 +96,21 @@ services:
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
+      - source: config.toml
+        target: /opt/besu/config.toml
     secrets:
       - source: validator-4-private-key
         target: /opt/besu/key
     command:
       [
-        "--bootnodes=enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
-        "--genesis-file=./genesis.json",
-        "--rpc-http-enabled",
-        "--rpc-http-api=ETH,NET,QBFT,IBFT",
-        "--rpc-http-cors-origins=all",
-        "--rpc-ws-enabled",
-        "--host-allowlist=*",
-        "--min-gas-price=0",
+        "--config-file=/opt/besu/config.toml"
       ]
 
 configs:
   genesis.json:
     file: ./genesis.json
+  config.toml:
+    file: ./config.toml
 
 secrets:
   bootnode-1-private-key:

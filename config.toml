@@ -1,0 +1,53 @@
+# https://besu.hyperledger.org/stable/public-networks/reference/cli/options
+
+# node
+genesis-file = "/opt/besu/genesis.json"
+host-allowlist = ["*"]
+min-gas-price = 0
+#logging="INFO" ## default
+
+# bootnodes
+bootnodes = [
+  "enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@172.16.238.10:30303",
+]
+
+# jsonrpc http
+rpc-http-enabled = true
+rpc-http-host = "0.0.0.0"
+#rpc-http-port=8545 ## default
+rpc-http-api = [
+  "ETH",
+  "NET",
+  "WEB3",
+  "ADMIN",
+  "DEBUG",
+  "EEA",
+  "IBFT",
+  "PERM",
+  "PRIV",
+  "QBFT",
+]
+rpc-http-cors-origins = ["*"]
+
+# jsonrpc ws
+rpc-ws-enabled = true
+rpc-ws-host = "0.0.0.0"
+#rpc-ws-port=8546 ## default
+rpc-ws-api = [
+  "ETH",
+  "NET",
+  "WEB3",
+  "ADMIN",
+  "DEBUG",
+  "EEA",
+  "IBFT",
+  "PERM",
+  "PRIV",
+  "QBFT",
+]
+
+# graphql http
+#graphql-http-enabled=false ## default
+#graphql-http-host="0.0.0.0"
+#graphql-http-port=8547 #default
+#graphql-http-cors-origins=["*"]

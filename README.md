@@ -2,15 +2,15 @@
 
 Run besu local qbft private network via docker.
 
+## TL;DR
+
+Just `docker compose up`.
+
 ## Getting Started
 
 ### Requirements
 
 - docker
-
-### TL;DR
-
-Just `docker compose up`.
 
 ## Overview
 
@@ -21,6 +21,8 @@ This is minimum QBFT configuration where the number `f` of tolerable byzantine n
 QBFT, as well as its predecessor IBFT 2.0, requires at least `3f+1` validators to tolerate `f` byzantine (faulty or malicious) nodes.
 
 Technically, bootnode is auxiliary but [strongly recommended](https://github.com/ConsenSys/quorum-kubernetes#production-network-guidelines) in general.
+
+In this repo, the bootnode is configured to have static ip `172.16.238.10`, and used in `config.toml` to compute bootnode enode url.
 
 In this repo, we use bootnode as rpc node too.
 
