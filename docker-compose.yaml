@@ -6,9 +6,6 @@ services:
       - "30303/udp"
       - "8545:8545" # rpc-http
       - "8546" # rpc-ws
-    networks:
-      network:
-        ipv4_address: 172.16.238.10 # this static ip is now used in config.toml to set bootnodes enodeUrl for other nodes
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json # default
@@ -17,10 +14,7 @@ services:
     secrets:
       - source: bootnode-1-private-key
         target: /opt/besu/key # default
-    command:
-      [
-        "--config-file=/opt/besu/config.toml"
-      ]
+    command: ["--config-file=/opt/besu/config.toml"]
   validator-1:
     image: hyperledger/besu:23.4.0
     ports:
@@ -28,8 +22,6 @@ services:
       - "30303/udp"
       - "8545" # rpc-http
       - "8546" # rpc-ws
-    networks:
-      - network
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -38,10 +30,7 @@ services:
     secrets:
       - source: validator-1-private-key
         target: /opt/besu/key
-    command:
-      [
-        "--config-file=/opt/besu/config.toml"
-      ]
+    command: ["--config-file=/opt/besu/config.toml"]
   validator-2:
     image: hyperledger/besu:23.4.0
     ports:
@@ -49,8 +38,6 @@ services:
       - "30303/udp"
       - "8545" # rpc-http
       - "8546" # rpc-ws
-    networks:
-      - network
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -59,10 +46,7 @@ services:
     secrets:
       - source: validator-2-private-key
         target: /opt/besu/key
-    command:
-      [
-        "--config-file=/opt/besu/config.toml"
-      ]
+    command: ["--config-file=/opt/besu/config.toml"]
   validator-3:
     image: hyperledger/besu:23.4.0
     ports:
@@ -70,8 +54,6 @@ services:
       - "30303/udp"
       - "8545" # rpc-http
       - "8546" # rpc-ws
-    networks:
-      - network
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -80,10 +62,7 @@ services:
     secrets:
       - source: validator-3-private-key
         target: /opt/besu/key
-    command:
-      [
-        "--config-file=/opt/besu/config.toml"
-      ]
+    command: ["--config-file=/opt/besu/config.toml"]
   validator-4:
     image: hyperledger/besu:23.4.0
     ports:
@@ -91,8 +70,6 @@ services:
       - "30303/udp"
       - "8545" # rpc-http
       - "8546" # rpc-ws
-    networks:
-      - network
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -101,10 +78,7 @@ services:
     secrets:
       - source: validator-4-private-key
         target: /opt/besu/key
-    command:
-      [
-        "--config-file=/opt/besu/config.toml"
-      ]
+    command: ["--config-file=/opt/besu/config.toml"]
 
 configs:
   genesis.json:
@@ -123,9 +97,3 @@ secrets:
     file: ./validator-3/key.priv
   validator-4-private-key:
     file: ./validator-4/key.priv
-
-networks:
-  network:
-    ipam:
-      config:
-        - subnet: 172.16.238.0/24
