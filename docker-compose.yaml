@@ -6,6 +6,7 @@ services:
       - "30303/udp"
       - "8545" # rpc-http
       - "8546" # rpc-ws
+      - "8547" # graphql
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -22,6 +23,7 @@ services:
       - "30303/udp"
       - "8545" # rpc-http
       - "8546" # rpc-ws
+      - "8547" # graphql
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -38,6 +40,7 @@ services:
       - "30303/udp"
       - "8545" # rpc-http
       - "8546" # rpc-ws
+      - "8547" # graphql
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -54,6 +57,7 @@ services:
       - "30303/udp"
       - "8545" # rpc-http
       - "8546" # rpc-ws
+      - "8547" # graphql
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
