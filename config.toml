@@ -1,55 +1,67 @@
+# minimal sensible defaults for local dev purposes
 # https://besu.hyperledger.org/stable/public-networks/reference/cli/options
 
-# node
+# qbft
 genesis-file = "/opt/besu/genesis.json"
-host-allowlist = ["*"]
-min-gas-price = 0
-#logging="INFO" ## default
-
-# bootnodes
 bootnodes = [
   "enode://2451b817819451af5adda1e1d069857a7f19d644280b3907f1fb44bf8c0c16f0db7bcf0594fab08a8779e1ca0d2efaf2854dc33ae77e748be330e577ccfe2b8d@bootnode-1:30303",
 ]
 Xdns-enabled = true
 Xdns-update-enabled = true
 
-# jsonrpc http
+# node
+data-path = "/opt/besu/database"        # default of besu docker image
+node-private-key-file = "/opt/besu/key" # default of besu docker image
+host-allowlist = ["*"]
+logging = "INFO"
+
+# rpc http
 rpc-http-enabled = true
-rpc-http-host = "0.0.0.0"
-#rpc-http-port=8545 ## default
+rpc-http-host = "127.0.0.1" # default
+rpc-http-port = 8545 # default
 rpc-http-api = [
   "ETH",
   "NET",
   "WEB3",
   "ADMIN",
+  "CLIQUE",
   "DEBUG",
   "EEA",
   "IBFT",
+  "MINER",
   "PERM",
+  "PLUGINS",
   "PRIV",
   "QBFT",
+  "TRACE",
+  "TXPOOL",
 ]
 rpc-http-cors-origins = ["*"]
 
-# jsonrpc ws
+# rpc ws
 rpc-ws-enabled = true
-rpc-ws-host = "0.0.0.0"
-#rpc-ws-port=8546 ## default
+rpc-ws-host = "127.0.0.1" # default
+rpc-ws-port = 8546 # default
 rpc-ws-api = [
   "ETH",
   "NET",
   "WEB3",
   "ADMIN",
+  "CLIQUE",
   "DEBUG",
   "EEA",
   "IBFT",
+  "MINER",
   "PERM",
+  "PLUGINS",
   "PRIV",
   "QBFT",
+  "TRACE",
+  "TXPOOL",
 ]
 
-# graphql http
-#graphql-http-enabled=false ## default
-#graphql-http-host="0.0.0.0"
-#graphql-http-port=8547 #default
-#graphql-http-cors-origins=["*"]
+# graphql
+graphql-http-enabled = true
+graphql-http-host = "127.0.0.1"   # default
+graphql-http-port = 8547          # default
+graphql-http-cors-origins = ["*"]
