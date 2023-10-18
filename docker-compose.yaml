@@ -1,20 +1,4 @@
 services:
-  bootnode-1:
-    image: hyperledger/besu:23.4.0
-    ports:
-      - "30303"
-      - "30303/udp"
-      - "8545:8545" # rpc-http
-      - "8546" # rpc-ws
-    configs:
-      - source: genesis.json
-        target: /opt/besu/genesis.json # default
-      - source: config.toml
-        target: /opt/besu/config.toml
-    secrets:
-      - source: bootnode-1-private-key
-        target: /opt/besu/key # default
-    command: ["--config-file=/opt/besu/config.toml"]
   validator-1:
     image: hyperledger/besu:23.4.0
     ports:
@@ -87,8 +71,6 @@ configs:
     file: ./config.toml
 
 secrets:
-  bootnode-1-private-key:
-    file: ./bootnode-1/key.priv
   validator-1-private-key:
     file: ./validator-1/key.priv
   validator-2-private-key:
