@@ -15,7 +15,12 @@ services:
     secrets:
       - source: validator-1-private-key
         target: /opt/besu/key
-    command: ["--config-file=/opt/besu/config.toml"]
+    command: [
+        "--config-file=/opt/besu/config.toml",
+        # "--rpc-http-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--rpc-ws-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--graphql-http-host=0.0.0.0", # bug: config.toml value is ignored
+      ]
   validator-2:
     image: hyperledger/besu:${TAG:-23.10.0}
     ports:
@@ -32,7 +37,12 @@ services:
     secrets:
       - source: validator-2-private-key
         target: /opt/besu/key
-    command: ["--config-file=/opt/besu/config.toml"]
+    command: [
+        "--config-file=/opt/besu/config.toml",
+        # "--rpc-http-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--rpc-ws-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--graphql-http-host=0.0.0.0", # bug: config.toml value is ignored
+      ]
   validator-3:
     image: hyperledger/besu:${TAG:-23.10.0}
     ports:
@@ -49,7 +59,12 @@ services:
     secrets:
       - source: validator-3-private-key
         target: /opt/besu/key
-    command: ["--config-file=/opt/besu/config.toml"]
+    command: [
+        "--config-file=/opt/besu/config.toml",
+        # "--rpc-http-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--rpc-ws-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--graphql-http-host=0.0.0.0", # bug: config.toml value is ignored
+      ]
   validator-4:
     image: hyperledger/besu:${TAG:-23.10.0}
     ports:
@@ -66,7 +81,12 @@ services:
     secrets:
       - source: validator-4-private-key
         target: /opt/besu/key
-    command: ["--config-file=/opt/besu/config.toml"]
+    command: [
+        "--config-file=/opt/besu/config.toml",
+        # "--rpc-http-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--rpc-ws-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--graphql-http-host=0.0.0.0", # bug: config.toml value is ignored
+      ]
 
 configs:
   genesis.json:
