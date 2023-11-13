@@ -1,6 +1,6 @@
 services:
   validator-1:
-    image: hyperledger/besu:${TAG:-23.4.4}
+    image: hyperledger/besu:${TAG:-23.10.0}
     ports:
       - "30303"
       - "30303/udp"
@@ -17,7 +17,7 @@ services:
         target: /opt/besu/key
     command: ["--config-file=/opt/besu/config.toml"]
   validator-2:
-    image: hyperledger/besu:${TAG:-23.4.4}
+    image: hyperledger/besu:${TAG:-23.10.0}
     ports:
       - "30303"
       - "30303/udp"
@@ -34,7 +34,7 @@ services:
         target: /opt/besu/key
     command: ["--config-file=/opt/besu/config.toml"]
   validator-3:
-    image: hyperledger/besu:${TAG:-23.4.4}
+    image: hyperledger/besu:${TAG:-23.10.0}
     ports:
       - "30303"
       - "30303/udp"
@@ -51,7 +51,7 @@ services:
         target: /opt/besu/key
     command: ["--config-file=/opt/besu/config.toml"]
   validator-4:
-    image: hyperledger/besu:${TAG:-23.4.4}
+    image: hyperledger/besu:${TAG:-23.10.0}
     ports:
       - "30303"
       - "30303/udp"
