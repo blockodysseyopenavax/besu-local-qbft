@@ -68,3 +68,40 @@ graphql-http-enabled = true
 graphql-http-host = "127.0.0.1"   # default
 graphql-http-port = 8547          # default
 graphql-http-cors-origins = ["*"]
+
+# metrics
+metrics-enabled = true
+# metrics-host = "127.0.0.1"
+metrics-host = "0.0.0.0"
+metrics-port = 9545
+# metrics-protocol = "PROMETHEUS"
+metrics-category = [
+  # default
+  "BLOCKCHAIN",
+  "ETHEREUM",
+  "EXECUTORS",
+  "JVM",
+  "NETWORK",
+  "PEERS",
+  "PERMISSIONING",
+  "PROCESS",
+  "PRUNER",
+  "RPC",
+  "STRATUM",
+  "SYNCHRONIZER",
+  "TRANSACTION_POOL",
+  # others
+  "KVSTORE_ROCKSDB",
+  "KVSTORE_PRIVATE_ROCKSDB",
+  "KVSTORE_ROCKSDB_STATS",
+  "KVSTORE_PRIVATE_ROCKSDB_STATS",
+  # when private tx enabled
+  # "PRIVATE",
+]
+
+# metrics-push (cannot be simultaneously used with metrics)
+metrics-push-enabled = false
+# metrics-push-host = "127.0.0.1"             # host of prometheus push gateway
+# metrics-push-port = 9001                    # port of prometheus push gateway
+# metrics-push-interval = 15                  # interval in seconds
+# metrics-push-prometheus-job = "besu-client"

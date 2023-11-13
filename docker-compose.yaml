@@ -8,6 +8,7 @@ services:
       - "127.0.0.1:8546:8546" # rpc-ws
       - "127.0.0.1:8547:8547" # graphql
       - "127.0.0.1:8551:8551" # engine-rpc
+      - "127.0.0.1:9545:9545" # metrics
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -31,6 +32,7 @@ services:
       - "8546" # rpc-ws
       - "8547" # graphql
       - "8551" # engine-rpc
+      - "9545" # metrics
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -54,6 +56,7 @@ services:
       - "8546" # rpc-ws
       - "8547" # graphql
       - "8551" # engine-rpc
+      - "9545" # metrics
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
@@ -77,6 +80,7 @@ services:
       - "8546" # rpc-ws
       - "8547" # graphql
       - "8551" # engine-rpc
+      - "9545" # metrics
     configs:
       - source: genesis.json
         target: /opt/besu/genesis.json
